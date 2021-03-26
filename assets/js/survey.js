@@ -26,7 +26,7 @@ var json = {
         },
         {
         "type": "boolean",
-        "name": "firstMessagge",
+        "name": "firstMessage",
         "title": {
             "es": "Estoy de acuerdo."
         },
@@ -42,7 +42,7 @@ var json = {
         {
         "type": "html",
         "name": "consentText",
-        "visibleIf": "{firstMessagge} = true",
+        "visibleIf": "{firstMessage} = true",
         "html": {
             "es": "<h2>CONSENTIMIENTO INFORMADO.</h2>\n<br>\n<div id='consentId'>\n<h3>Nombre del estudio</h3>\n<p>Evaluación de los niveles de depresión y ansiedad por confinamiento, en estudiantes universitarios y docentes de la FMBUAP, relacionada a la pandemia de COVID-19.</p>\n<h3>Número de registro</h3>\n<p>REGISTRO VIEP PENDIENTE.</p>\n<h3>Justificación y objetivo del estudio</h3>\n<p>La situación a nivel mundial ocasionada por la enfermedad de COVID-19, ha generado un\ngran impacto en las personas, el presente estudio pretende evaluar los niveles de depresión\ny ansiedad, en estudiantes universitarios y docentes de la FMBUAP , debido al\nconfinamiento relacionado a la pandemia, a partir de marzo de 2020 a la fecha.</p>\n<h3>Procedimientos</h3>\n<p>Se aplicarán instrumentos que evalúan ansiedad, depresión y estrés, actividad física, conductas asociadas al confinamiento y medidas preventivas.</p>\n<h3>Posibles riesgos y molestias</h3>\n<p>Vulnerabilidad al responder con honestidad las preguntas de los instrumentos aplicados y/o hastío al contestar las preguntas.</p>\n<h3>Posibles beneficios que recibirá al participar en el estudio</h3>\n<p>El participante conocerá sus niveles de ansiedad, estrés y depresión, de así conceder, se\npodrá canalizar al Departamento de Psiquiatría de la Facultad de medicina para su\nevaluación y posterior seguimiento buscando la mejoría del estado de salud mental del encuestado y/o revertir daños a la misma.</p>\n<h3>Confidencialidad</h3>\n<p>La información de los resultados es estrictamente confidencial y estará resguardada por el equipo de investigadores. La información será utilizada para este único estudio de investigación.</p>\n<h3>Participación o retiro</h3>\n<p>Usted podrá retirarse sin ninguna consecuencia en el momento que lo decida (cuestionarios incompletos serán eliminados del estudio).</p>\n<h3>Privacidad y confidencialidad</h3>\n<p>Nuestra responsabilidad y obligación como investigadores será el respetar su privacidad y\nmantener la confidencialidad de la información proporcionada que se derive de su participación en el estudio. Siguiendo el Artículo 14.1 de la ley federal de protección de\ndatos personales y siguiendo los lineamientos de la convención de Helsinki.</p>\n<h3>En caso de colección de material biológico</h3>\n<p>No colectaremos material biológico.</p>\n</div>\n<h3>En caso de dudas o aclaraciones relacionadas con el estudio podrá dirigirse a:</h3><br>\n<h4>Investigador Responsable</h4>\n<p><u>D.C. Martha Elba González Mejía</u>. Departamento de Genética\nde la Facultad de Medicina, Benemérita Universidad Autónoma de Puebla. Matrícula BUAP: 100519099. WhatsApp: <a>22-25-24-44-97</a>. Email: <a>elba.gonzalezmejia@gmail.com</a></p>\n<h4>Colaboradores</h4>\n<p><u>D.C Ricardo Pérez Fuentes</u>. Departamento de Metodología de la\ninvestigación de la Facultad de Medicina, Benemérita Universidad Autónoma de Puebla. Matrícula BUAP: 100170644. WhatsApp: <a>22-21-94-57-58</a>. Email: <a>rycardoperez@hotmail.com</a></p>\n<p><u>Denilson Xipe Pacheco Tobón</u>. Alumno de la Licenciatura en Medicina de la Facultad de Medicina, Benemérita Universidad Autónoma de Puebla. Matricula: 201612501. WhatsApp: <a>22-26-70-05-65</a>. Email: <a>xipept@gmail.com</a></p>\n<p><u>Claudia Arellano Ramírez</u>. Alumna de la Licenciatura en Medicina de la de Facultad de Medicina, Benemérita Universidad Autónoma de Puebla. Matricula: 201605314. Email: <a>clau_a_r@outlook.com</a></p>"
         }
@@ -50,7 +50,7 @@ var json = {
         {
         "type": "boolean",
         "name": "consent",
-        "visibleIf": "{firstMessagge} = true",
+        "visibleIf": "{firstMessage} = true",
         "title": {
             "default": "Sí autorizo participar y que se utilicen mis datos, así como la información derivada en estricta confidencialidad.",
             "es": "Participaré y autorizo que se utilicen mis datos, así como la información derivada de estos en estricta confidencialidad."
@@ -149,9 +149,9 @@ var json = {
         },
         {
         "type": "radiogroup",
-        "name": "sex",
+        "name": "gender",
         "visibleIf": "{name} notempty",
-        "title": "Sexo",
+        "title": "Género",
         "hideNumber": true,
         "isRequired": true,
         "choices": [
@@ -573,7 +573,7 @@ var json = {
         },
         {
         "type": "radiogroup",
-        "name": "accessToInternetAndDevices_Student",
+        "name": "accessToInternetAndDevicesStudent",
         "visibleIf": "{worked} notempty",
         "title": "El acceso a internet y dispositivos electrónicos como computadora, tablet, celular etc. para tomar clases en línea fue:",
         "hideNumber": true,
@@ -1905,7 +1905,7 @@ survey
             $('.user').html(`
                 <input name='name' type='text' value='${result.data.name}' hidden/>
                 <input name='age' type='text' value='${result.data.age.toString()}' hidden/>
-                <input name='sex' type='text' value='${result.data.sex}' hidden/>
+                <input name='gender' type='text' value='${result.data.gender}' hidden/>
                 <input name='kids' type='text' value='${result.data.kids === false ? 'No' : 'Sí'}' hidden/>
                 <input name='state' type='text' value='${result.data.state}' hidden/>
                 <input name='municipality' type='text' value='${result.data.municipality}' hidden/>
@@ -1919,7 +1919,7 @@ survey
                 <input name='seriousWorkProblems' type='text' value='${result.data.seriousWorkProblems}' hidden/>
                 <input name='workDifficulties' type='text' value='${result.data.workDifficulties}' hidden/>
                 <input name='accessToInternetAndDevices_Doctor' type='text' value='${result.data.accessToInternetAndDevices_Doctor}' hidden/>
-                <input name='accessToInternetAndDevices_Student' type='text' value='${result.data.accessToInternetAndDevices_Student}' hidden/>
+                <input name='accessToInternetAndDevicesStudent' type='text' value='${result.data.accessToInternetAndDevicesStudent}' hidden/>
                 <input name='academicPerformance' type='text' value='${result.data.academicPerformance}' hidden/>
                 <input name='difficultiesToStudy' type='text' value='${result.data.difficultiesToStudy}' hidden/>
                 <input name='typeOfActivity' type='text' value='${result.data.typeOfActivity}' hidden/>

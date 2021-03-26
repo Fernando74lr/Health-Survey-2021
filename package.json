@@ -1,0 +1,23 @@
+{
+  "name": "Health-Survey-2021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fernando74lr/Survey-Health-2021.git"
+  },
+  "keywords": [],
+  "author": "Fernando Lopez Ramirez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fernando74lr/Survey-Health-2021/issues"
+  },
+  "homepage": "https://github.com/Fernando74lr/Survey-Health-2021#readme",
+  "dependencies": {
+    "firebase-admin": "^9.5.0"
+  }
+}
