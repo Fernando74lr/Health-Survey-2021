@@ -95,7 +95,7 @@ var json = {
         {
         "type": "html",
         "name": "thankYouMessage",
-        "visibleIf": "{consent} = false or {firstMessagge} = false",
+        "visibleIf": "{consent} = false or {firstMessage} = false",
         "html": {
             "default": "<b style='font-size:30px'>La encuesta ha terminado. Muchas gracias por el tiempo invertido. </b>",
             "es": "<b style='font-size:30px'>Muchas gracias por el tiempo invertido. </b>"
