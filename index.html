@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
-        <title>Health Survey</title>
+        <title>Survey Health</title>
         <meta name="viewport" content="width=device-width"/>
-        <link rel="icon" href="{% static 'core/img/icon_2.ico' %}">
-        <!-- SurveyJs -->
+        <!-- Icon -->
+        <link rel="icon" href="assets/img/icon_2.ico">
+        <!-- JQuery -->
         <script src="https://unpkg.com/jquery"></script>
+        <!-- SurveyJs -->
         <script src="https://surveyjs.azureedge.net/1.7.24/survey.jquery.js"></script>
         <link href="https://surveyjs.azureedge.net/1.7.24/modern.css" type="text/css" rel="stylesheet"/>
         <!-- Bootstrap -->
@@ -13,12 +15,18 @@
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Local CSS -->
-        <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+        <link rel="stylesheet" href="assets/css/styles.css">
         <!-- ChartJs -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
     </head>
 <body>
+
+    <div class="banner_buap">
+        <img id="banner" src="assets/img/banner_buap.png" alt="banner_buap">
+        <img id="logo" src="assets/img/buap_logo.png" alt="banner_buap">
+    </div>
+
     <div id="surveyElement" style="display:inline-block;width:100%;"></div>
+    <script src="assets/js/survey.js"></script>
 </body>
 </html>
