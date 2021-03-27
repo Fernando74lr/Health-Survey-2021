@@ -555,7 +555,7 @@ var json = {
         },
         {
         "type": "radiogroup",
-        "name": "accessToInternetAndDevices_Doctor",
+        "name": "accessToInternetAndDevicesDoctor",
         "visibleIf": "{occupation} anyof ['MIP', 'MPSS', 'Docente'] and {workDifficulties} notempty",
         "title": "El acceso a internet y dispositivos electrónicos como computadora, tablet, celular etc. para impartir clases en línea fue:",
         "hideNumber": true,
@@ -641,13 +641,13 @@ var json = {
         {
         "type": "html",
         "name": "indication_1",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "html": "<h1>Indicación</h1><br>\n<h2>Por favor lea las siguientes afirmaciones y seleccione qué grado le ha ocurrido a usted esa afirmación durante la semana pasada.</h2>"
         },
         {
         "type": "radiogroup",
         "name": "pt1_1",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "Me ha costado mucho descargar la tensión.",
         "isRequired": true,
         "choices": [
@@ -672,7 +672,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_2",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "Me di cuenta que tenía la boca seca.",
         "isRequired": true,
         "choices": [
@@ -697,7 +697,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_3",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "No podía sentir ningún sentimiento positivo.",
         "isRequired": true,
         "choices": [
@@ -722,7 +722,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_4",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "Se me hizo difícil respirar.",
         "isRequired": true,
         "choices": [
@@ -747,7 +747,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_5",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "Se me hizo difícil tomar la iniciativa para hacer cosas.",
         "isRequired": true,
         "choices": [
@@ -772,7 +772,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_6",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "Reaccioné exageradamente en ciertas situaciones.",
         "isRequired": true,
         "choices": [
@@ -797,7 +797,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_7",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "Sentí que mis manos temblaban.",
         "isRequired": true,
         "choices": [
@@ -822,7 +822,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_8",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "He sentido que estaba gastando una gran cantidad de energía.",
         "isRequired": true,
         "choices": [
@@ -847,7 +847,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_9",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "Estaba preocupado por situaciones en las cuales podía tener pánico o en las que podría hacer el ridículo.",
         "isRequired": true,
         "choices": [
@@ -872,7 +872,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_10",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "He sentido que no había nada que me ilusionara.",
         "isRequired": true,
         "choices": [
@@ -897,7 +897,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_11",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "Me he sentido inquieto.",
         "isRequired": true,
         "choices": [
@@ -922,7 +922,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_12",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "Se me hizo difícil relajarme.",
         "isRequired": true,
         "choices": [
@@ -947,7 +947,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_13",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "Me sentí triste y deprimido.",
         "isRequired": true,
         "choices": [
@@ -972,7 +972,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_14",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "No toleré nada que no me permitiera continuar con lo que estaba haciendo.",
         "isRequired": true,
         "choices": [
@@ -997,7 +997,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_15",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "Sentí que estaba al punto de pánico.",
         "isRequired": true,
         "choices": [
@@ -1022,7 +1022,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_16",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "No me pude entusiasmar por nada.",
         "isRequired": true,
         "choices": [
@@ -1047,7 +1047,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_17",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "Sentí que valía muy poco como persona.",
         "isRequired": true,
         "choices": [
@@ -1072,7 +1072,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_18",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "He tendido a sentirme enfadado con facilidad.",
         "isRequired": true,
         "choices": [
@@ -1097,7 +1097,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_19",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "Sentí los latidos de mi corazón a pesar de no haber hecho ningún esfuerzo físico.",
         "isRequired": true,
         "choices": [
@@ -1122,7 +1122,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_20",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "Tuve miedo sin razón.",
         "isRequired": true,
         "choices": [
@@ -1147,7 +1147,7 @@ var json = {
         {
         "type": "radiogroup",
         "name": "pt1_21",
-        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevices_Doctor} notempty",
+        "visibleIf": "{difficultiesToStudy} notempty or {accessToInternetAndDevicesDoctor} notempty",
         "title": "Sentí que la vida no tenía ningún sentido.",
         "isRequired": true,
         "choices": [
@@ -1878,8 +1878,8 @@ function getId(name, facultyYear) {
             else
                 abrev = name[1] + name[2] + name[0] + '0';
         } catch (error) {
+            console.log("Error while generating the ID");
             console.log(error);
-            location.replace(`${window.origin}/?name`);
         }
     } else {
         abrev = 'GENERICO';
@@ -1891,99 +1891,113 @@ function getId(name, facultyYear) {
 survey
     .onComplete
     .add(function (result) {
-        console.log(result.data);
-        console.log(JSON.stringify(result.data, null, 3));
-        let imageBase64 = result.data.image[0].content;
-        let surveyId = getId(result.data.name, result.data.facultyYear);
+        console.log("RESULT: ", result.data);
+
+        const user = {
+            // User info.
+            firstMessage: result.data.firstMessage,
+            consent: result.data.consent,
+            image: {
+                name: result.data.image[0].name,
+                type: result.data.image[0].type,
+                content: result.data.image[0].content
+            },
+            surveyId: getId(result.data.name, result.data.facultyYear),
+            facultyYear: result.data.facultyYear,
+            name: result.data.name,
+            age: result.data.age,
+            gender: result.data.gender,
+            civilStatus: result.data.civilStatus,
+            kids: result.data.kids,
+            state: result.data.state,
+            municipality: result.data.municipality,
+            typeOfResidence: result.data.typeOfResidence,
+            email: result.data.email,
+            emailConfirmation: result.data.emailConfirmation,
+            occupation: result.data.occupation,
+            semester: result.data.semester || 'No aplica',
+            worked: result.data.worked || 'No aplica',
+            workDifficulties: result.data.workDifficulties || 'No aplica',
+            academicPerformance: result.data.academicPerformance || 'No aplica',
+            difficultiesToStudy: result.data.difficultiesToStudy || 'No aplica',
+            seriousWorkProblems: result.data.seriousWorkProblems || 'No aplica',
+            accessToInternetAndDevicesDoctor: result.data.accessToInternetAndDevicesDoctor || 'No aplica',
+            accessToInternetAndDevicesStudent: result.data.accessToInternetAndDevicesStudent || 'No aplica',
+            academicPerformance: result.data.academicPerformance || 'No aplica',
+            difficultiesToStudy: result.data.difficultiesToStudy || 'No aplica',
+            typeOfActivity: result.data.typeOfActivity || 'No aplica',
+            useOfMask: result.data.useOfMask,
+            typeOfMask: result.data.typeOfMask,
+            // Questions part 1.
+            pt1_1: result.data.pt1_1,
+            pt1_2: result.data.pt1_2,
+            pt1_3: result.data.pt1_3,
+            pt1_4: result.data.pt1_4,
+            pt1_5: result.data.pt1_5,
+            pt1_6: result.data.pt1_6,
+            pt1_7: result.data.pt1_7,
+            pt1_8: result.data.pt1_8,
+            pt1_9: result.data.pt1_9,
+            pt1_10: result.data.pt1_10,
+            pt1_11: result.data.pt1_11,
+            pt1_12: result.data.pt1_12,
+            pt1_13: result.data.pt1_13,
+            pt1_14: result.data.pt1_14,
+            pt1_15: result.data.pt1_15,
+            pt1_16: result.data.pt1_16,
+            pt1_17: result.data.pt1_17,
+            pt1_18: result.data.pt1_18,
+            pt1_19: result.data.pt1_19,
+            pt1_20: result.data.pt1_20,
+            pt1_21: result.data.pt1_21,
+            // Questions part 2.
+            pt2_Intense_1: result.data.pt2_Intense_1,
+            pt2_Intense_2: result.data.pt2_Intense_2,
+            pt2_Moderated_1: result.data.pt2_Moderated_1,
+            pt2_Moderated_2: result.data.pt2_Moderated_2,
+            pt2_Hike_1: result.data.pt2_Hike_1,
+            pt2_Hike_2: result.data.pt2_Hike_2,
+            pt2_Seated_1: result.data.pt2_Seated_1,
+            // Questions part 3.
+            pt3_1: result.data.pt3_1 === false ? 'No' : 'Sí',
+            pt3_2: result.data.pt3_2 === false ? 'No' : 'Sí',
+            pt3_3: result.data.pt3_3 === false ? 'No' : 'Sí',
+            pt3_4: result.data.pt3_4 === false ? 'No' : 'Sí',
+            pt3_5: result.data.pt3_5 === false ? 'No' : 'Sí',
+            pt3_6: result.data.pt3_6 === false ? 'No' : 'Sí',
+            pt3_7: result.data.pt3_7 === false ? 'No' : 'Sí',
+            pt3_8: result.data.pt3_8 === false ? 'No' : 'Sí',
+            pt3_9: result.data.pt3_9 === false ? 'No' : 'Sí',
+            pt3_10: result.data.pt3_10 === false ? 'No' : 'Sí',
+            // Questions part 4.
+            pt4_1: result.data.pt4_1 === false ? 'No' : 'Sí',
+            pt4_2: result.data.pt4_2 === false ? 'No' : 'Sí',
+            pt4_3: result.data.pt4_3 === false ? 'No' : 'Sí',
+            pt4_4: result.data.pt4_4 === false ? 'No' : 'Sí',
+            pt4_5: result.data.pt4_5 === false ? 'No' : 'Sí',
+            pt4_6: result.data.pt4_6 === false ? 'No' : 'Sí',
+            // Questions part 5.
+            pt5_1: result.data.pt5_1,
+            pt5_2: result.data.pt5_2,
+            pt5_3: result.data.pt5_3,
+            pt5_4: result.data.pt5_4,
+            pt5_5: result.data.pt5_5,
+            pt5_6: result.data.pt5_6,
+            pt5_7: result.data.pt5_7,
+            pt5_8: result.data.pt5_8
+        };
+        
+        // console.log(JSON.stringify(result.data, null, 3));
+        // let imageBase64 = result.data.image[0].content;
+        // let surveyId = getId(result.data.name, result.data.facultyYear);
         let email = result.data.email;
         let emailConfirm = result.data.emailConfirmation;
         if (email === emailConfirm) {
-            // Render and Send Data
-            $('#form').removeClass('hidden');
+            // Render and Send Data.
+            console.log("USER: ", user);
+            createUser(user);
             $('#result').removeClass('hidden');
-            $('#yearAndName').html(`${surveyId}`);
-            $('.user').html(`
-                <input name='name' type='text' value='${result.data.name}' hidden/>
-                <input name='age' type='text' value='${result.data.age.toString()}' hidden/>
-                <input name='gender' type='text' value='${result.data.gender}' hidden/>
-                <input name='kids' type='text' value='${result.data.kids === false ? 'No' : 'Sí'}' hidden/>
-                <input name='state' type='text' value='${result.data.state}' hidden/>
-                <input name='municipality' type='text' value='${result.data.municipality}' hidden/>
-                <input name='typeOfResidence' type='text' value='${result.data.typeOfResidence}' hidden/>
-                <input name='facultyYear' type='text' value='${result.data.facultyYear}' hidden/>
-                <input name='civilStatus' type='text' value='${result.data.civilStatus}' hidden/>
-                <input name='email' type='email' value='${result.data.email}' hidden/>
-                <input name='occupation' type='text' value='${result.data.occupation}' hidden/>
-                <input name='semester' type='text' value='${result.data.semester}' hidden/>
-                <input name='worked' type='text' value='${result.data.worked === false ? 'No' : 'Sí'}' hidden/>
-                <input name='seriousWorkProblems' type='text' value='${result.data.seriousWorkProblems}' hidden/>
-                <input name='workDifficulties' type='text' value='${result.data.workDifficulties}' hidden/>
-                <input name='accessToInternetAndDevices_Doctor' type='text' value='${result.data.accessToInternetAndDevices_Doctor}' hidden/>
-                <input name='accessToInternetAndDevicesStudent' type='text' value='${result.data.accessToInternetAndDevicesStudent}' hidden/>
-                <input name='academicPerformance' type='text' value='${result.data.academicPerformance}' hidden/>
-                <input name='difficultiesToStudy' type='text' value='${result.data.difficultiesToStudy}' hidden/>
-                <input name='typeOfActivity' type='text' value='${result.data.typeOfActivity}' hidden/>
-                <input name='useOfMask' type='text' value='${result.data.useOfMask}' hidden/>
-                <input name='typeOfMask' type='text' value='${result.data.typeOfMask}' hidden/>
-                <input name='image' type='text' value='${imageBase64}' hidden/>
-
-                <input name='pt1_1' type='text' value='${result.data.pt1_1}' hidden/>
-                <input name='pt1_2' type='text' value='${result.data.pt1_2}' hidden/>
-                <input name='pt1_3' type='text' value='${result.data.pt1_3}' hidden/>
-                <input name='pt1_4' type='text' value='${result.data.pt1_4}' hidden/>
-                <input name='pt1_5' type='text' value='${result.data.pt1_5}' hidden/>
-                <input name='pt1_6' type='text' value='${result.data.pt1_6}' hidden/>
-                <input name='pt1_7' type='text' value='${result.data.pt1_7}' hidden/>
-                <input name='pt1_8' type='text' value='${result.data.pt1_8}' hidden/>
-                <input name='pt1_9' type='text' value='${result.data.pt1_9}' hidden/>
-                <input name='pt1_10' type='text' value='${result.data.pt1_10}' hidden/>
-                <input name='pt1_11' type='text' value='${result.data.pt1_11}' hidden/>
-                <input name='pt1_12' type='text' value='${result.data.pt1_12}' hidden/>
-                <input name='pt1_13' type='text' value='${result.data.pt1_13}' hidden/>
-                <input name='pt1_14' type='text' value='${result.data.pt1_14}' hidden/>
-                <input name='pt1_15' type='text' value='${result.data.pt1_15}' hidden/>
-                <input name='pt1_16' type='text' value='${result.data.pt1_16}' hidden/>
-                <input name='pt1_17' type='text' value='${result.data.pt1_17}' hidden/>
-                <input name='pt1_18' type='text' value='${result.data.pt1_18}' hidden/>
-                <input name='pt1_19' type='text' value='${result.data.pt1_19}' hidden/>
-                <input name='pt1_20' type='text' value='${result.data.pt1_20}' hidden/>
-                <input name='pt1_21' type='text' value='${result.data.pt1_21}' hidden/>
-
-                <input name='pt2_Intense_1' type='text' value='${result.data.pt2_Intense_1}' hidden/>
-                <input name='pt2_Intense_2' type='text' value='${result.data.pt2_Intense_2}' hidden/>
-                <input name='pt2_Moderated_1' type='text' value='${result.data.pt2_Moderated_1}' hidden/>
-                <input name='pt2_Moderated_2' type='text' value='${result.data.pt2_Moderated_2}' hidden/>
-                <input name='pt2_Hike_1' type='text' value='${result.data.pt2_Hike_1}' hidden/>
-                <input name='pt2_Hike_2' type='text' value='${result.data.pt2_Hike_2}' hidden/>
-                <input name='pt2_Seated_1' type='text' value='${result.data.pt2_Seated_1}' hidden/>
-
-                <input name='pt3_1' type='text' value='${result.data.pt3_1 === false ? 'No' : 'Sí'}' hidden/>
-                <input name='pt3_2' type='text' value='${result.data.pt3_2 === false ? 'No' : 'Sí'}' hidden/>
-                <input name='pt3_3' type='text' value='${result.data.pt3_3 === false ? 'No' : 'Sí'}' hidden/>
-                <input name='pt3_4' type='text' value='${result.data.pt3_4 === false ? 'No' : 'Sí'}' hidden/>
-                <input name='pt3_5' type='text' value='${result.data.pt3_5 === false ? 'No' : 'Sí'}' hidden/>
-                <input name='pt3_6' type='text' value='${result.data.pt3_6 === false ? 'No' : 'Sí'}' hidden/>
-                <input name='pt3_7' type='text' value='${result.data.pt3_7 === false ? 'No' : 'Sí'}' hidden/>
-                <input name='pt3_8' type='text' value='${result.data.pt3_8 === false ? 'No' : 'Sí'}' hidden/>
-                <input name='pt3_9' type='text' value='${result.data.pt3_9 === false ? 'No' : 'Sí'}' hidden/>
-                <input name='pt3_10' type='text' value='${result.data.pt3_10 === false ? 'No' : 'Sí'}' hidden/>
-
-                <input name='pt4_1' type='text' value='${result.data.pt4_1 === false ? 'No' : 'Sí'}' hidden/>
-                <input name='pt4_2' type='text' value='${result.data.pt4_2 === false ? 'No' : 'Sí'}' hidden/>
-                <input name='pt4_3' type='text' value='${result.data.pt4_3 === false ? 'No' : 'Sí'}' hidden/>
-                <input name='pt4_4' type='text' value='${result.data.pt4_4 === false ? 'No' : 'Sí'}' hidden/>
-                <input name='pt4_5' type='text' value='${result.data.pt4_5 === false ? 'No' : 'Sí'}' hidden/>
-                <input name='pt4_6' type='text' value='${result.data.pt4_6 === false ? 'No' : 'Sí'}' hidden/>
-
-                <input name='pt5_1' type='text' value='${result.data.pt5_1}' hidden/>
-                <input name='pt5_2' type='text' value='${result.data.pt5_2}' hidden/>
-                <input name='pt5_3' type='text' value='${result.data.pt5_3}' hidden/>
-                <input name='pt5_4' type='text' value='${result.data.pt5_4}' hidden/>
-                <input name='pt5_5' type='text' value='${result.data.pt5_5}' hidden/>
-                <input name='pt5_6' type='text' value='${result.data.pt5_6}' hidden/>
-                <input name='pt5_7' type='text' value='${result.data.pt5_7}' hidden/>
-                <input name='pt5_8' type='text' value='${result.data.pt5_8}' hidden/>
-            `);
+            $('#surveyIDShow').html(user.surveyId)
         } else {
             $('.center').html(
                 `<div class='alert alert-danger' role='alert'>
@@ -1991,7 +2005,7 @@ survey
                     <small>Por favor asegúrate de poner el mismo correo.</small>
                 </div>
                 <div class="buttons_panel" style="margin-top:10px;display:flex;justify-content:center;text-align:center;">
-                    <button type="button" id="buttonHome" onclick="home()" class="btn btn-primary" style="margin-right:10px;border-radius:1.214em!important;">  Inicio  </button>
+                    <a href="https://health-survey-2021.web.app/"><button type="button" id="buttonHome"class="btn btn-primary" style="margin-right:10px;border-radius:1.214em!important;">Inicio</button></a>
                 </div>
                 <br>
                 `

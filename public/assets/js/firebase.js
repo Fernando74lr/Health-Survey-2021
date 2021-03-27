@@ -7,9 +7,15 @@ const db = firebase.firestore();
 // Create user
 function createUser(user) {
     const userInfo = {
+        // User info.
         firstMessage: user.firstMessage,
         consent: user.consent,
-        image: user.image.name,
+        image: {
+            name: user.image.name,
+            type: user.image.type,
+            content: user.image.content
+        },
+        surveyId: user.surveyId,
         facultyYear: user.facultyYear,
         name: user.name,
         age: user.age,
@@ -24,10 +30,17 @@ function createUser(user) {
         occupation: user.occupation,
         semester: user.semester,
         worked: user.worked,
+        workDifficulties: user.workDifficulties,
+        academicPerformance: user.academicPerformance,
+        difficultiesToStudy: user.difficultiesToStudy,
         seriousWorkProblems: user.seriousWorkProblems,
+        accessToInternetAndDevicesDoctor: user.accessToInternetAndDevicesDoctor,
         accessToInternetAndDevicesStudent: user.accessToInternetAndDevicesStudent,
         academicPerformance: user.academicPerformance,
         difficultiesToStudy: user.difficultiesToStudy,
+        typeOfActivity: user.typeOfActivity,
+        useOfMask: user.useOfMask,
+        typeOfMask: user.typeOfMask,
         created: Date.now()
     };
 
@@ -106,89 +119,90 @@ function createUser(user) {
     db.collection(`users/${user.name}/questions`).doc('part3').set(userQuestionsPart3);
     db.collection(`users/${user.name}/questions`).doc('part4').set(userQuestionsPart4);
     db.collection(`users/${user.name}/questions`).doc('part5').set(userQuestionsPart5);
+    console.log("USER CREATED");
 }
 
-const userTest = {
-    firstMessage: true,
-    consent: true,
-    image: {
-        name: "pp9.PNG",
-        type: "image/png",
-        content: "data:image/png;base64"
-    },
-    facultyYear: "2000",
-    name: "VHHS",
-    age: 20,
-    gender: "Masculino",
-    civilStatus: "Soltero (a)",
-    kids: false,
-    state: "Puebla",
-    municipality: "Puebla",
-    typeOfResidence: "Urbano",
-    email: "flopezramirez@hotmail.com",
-    emailConfirmation: "flopezramirez@hotmail.com",
-    occupation: "Alumno",
-    semester: "7mo",
-    worked: true,
-    seriousWorkProblems: "Nunca o casi nunca",
-    accessToInternetAndDevicesStudent: "Fácil de obtener",
-    academicPerformance: "Tuve menor aprovechamiento",
-    difficultiesToStudy: "Nunca o casi nunca",
-    pt1_1: "No me ha ocurrido",
-    pt1_2: "No me ha ocurrido",
-    pt1_3: "No me ha ocurrido",
-    pt1_4: "No me ha ocurrido",
-    pt1_5: "No me ha ocurrido",
-    pt1_6: "No me ha ocurrido",
-    pt1_7: "No me ha ocurrido",
-    pt1_8: "No me ha ocurrido",
-    pt1_9: "No me ha ocurrido",
-    pt1_10: "No me ha ocurrido",
-    pt1_11: "No me ha ocurrido",
-    pt1_12: "No me ha ocurrido",
-    pt1_13: "No me ha ocurrido",
-    pt1_14: "No me ha ocurrido",
-    pt1_15: "No me ha ocurrido",
-    pt1_16: "No me ha ocurrido",
-    pt1_17: "No me ha ocurrido",
-    pt1_18: "No me ha ocurrido",
-    pt1_19: "No me ha ocurrido",
-    pt1_20: "No me ha ocurrido",
-    pt1_21: "No me ha ocurrido",
-    typeOfActivity: "Sentado (nula actividad física)",
-    pt2_Seated_1: 10,
-    pt3_1: true,
-    pt3_2: false,
-    pt3_3: false,
-    pt3_4: true,
-    pt3_5: true,
-    pt3_6: true,
-    pt3_7: true,
-    pt3_8: true,
-    pt3_9: true,
-    pt3_10: true,
-    useOfMask: "Casi siempre",
-    typeOfMask: "KN95",
-    pt4_1: true,
-    pt4_2: false,
-    pt4_3: true,
-    pt4_4: true,
-    pt4_5: false,
-    pt4_6: true,
-    pt5_1: "Nunca o casi nunca",
-    pt5_2: "Nunca o casi nunca",
-    pt5_3: "Nunca o casi nunca",
-    pt5_4: "Nunca o casi nunca",
-    pt5_5: "Nunca o casi nunca",
-    pt5_6: "Bastantes veces",
-    pt5_7: "Algunas veces",
-    pt5_8: "Algunas veces"
-};
+// const userTest = {
+//     firstMessage: true,
+//     consent: true,
+//     image: {
+//         name: "pp9.PNG",
+//         type: "image/png",
+//         content: "data:image/png;base64"
+//     },
+//     facultyYear: "2000",
+//     name: "VHHS",
+//     age: 20,
+//     gender: "Masculino",
+//     civilStatus: "Soltero (a)",
+//     kids: false,
+//     state: "Puebla",
+//     municipality: "Puebla",
+//     typeOfResidence: "Urbano",
+//     email: "flopezramirez@hotmail.com",
+//     emailConfirmation: "flopezramirez@hotmail.com",
+//     occupation: "Alumno",
+//     semester: "7mo",
+//     worked: true,
+//     seriousWorkProblems: "Nunca o casi nunca",
+//     accessToInternetAndDevicesStudent: "Fácil de obtener",
+//     academicPerformance: "Tuve menor aprovechamiento",
+//     difficultiesToStudy: "Nunca o casi nunca",
+//     pt1_1: "No me ha ocurrido",
+//     pt1_2: "No me ha ocurrido",
+//     pt1_3: "No me ha ocurrido",
+//     pt1_4: "No me ha ocurrido",
+//     pt1_5: "No me ha ocurrido",
+//     pt1_6: "No me ha ocurrido",
+//     pt1_7: "No me ha ocurrido",
+//     pt1_8: "No me ha ocurrido",
+//     pt1_9: "No me ha ocurrido",
+//     pt1_10: "No me ha ocurrido",
+//     pt1_11: "No me ha ocurrido",
+//     pt1_12: "No me ha ocurrido",
+//     pt1_13: "No me ha ocurrido",
+//     pt1_14: "No me ha ocurrido",
+//     pt1_15: "No me ha ocurrido",
+//     pt1_16: "No me ha ocurrido",
+//     pt1_17: "No me ha ocurrido",
+//     pt1_18: "No me ha ocurrido",
+//     pt1_19: "No me ha ocurrido",
+//     pt1_20: "No me ha ocurrido",
+//     pt1_21: "No me ha ocurrido",
+//     typeOfActivity: "Sentado (nula actividad física)",
+//     pt2_Seated_1: 10,
+//     pt3_1: true,
+//     pt3_2: false,
+//     pt3_3: false,
+//     pt3_4: true,
+//     pt3_5: true,
+//     pt3_6: true,
+//     pt3_7: true,
+//     pt3_8: true,
+//     pt3_9: true,
+//     pt3_10: true,
+//     useOfMask: "Casi siempre",
+//     typeOfMask: "KN95",
+//     pt4_1: true,
+//     pt4_2: false,
+//     pt4_3: true,
+//     pt4_4: true,
+//     pt4_5: false,
+//     pt4_6: true,
+//     pt5_1: "Nunca o casi nunca",
+//     pt5_2: "Nunca o casi nunca",
+//     pt5_3: "Nunca o casi nunca",
+//     pt5_4: "Nunca o casi nunca",
+//     pt5_5: "Nunca o casi nunca",
+//     pt5_6: "Bastantes veces",
+//     pt5_7: "Algunas veces",
+//     pt5_8: "Algunas veces"
+// };
 
 
-test();
+// test();
 
-function test() {
-    createUser(userTest);
-    console.log("User loaded");
-}
+// function test() {
+//     createUser(userTest);
+//     console.log("User loaded");
+// }
