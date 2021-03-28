@@ -1,7 +1,3 @@
-// let admin = () => location.replace(`${window.origin}/admin`);
-// let results = () => location.replace(`${window.origin}/results`);
-// let home = () => location.replace(window.origin.replace("results",""));
-
 $('.sv-footer__complete-btn').css('value', 'Completar');
 $('.sv-logo__image').css('border-radius', '5px');
 
