@@ -1864,6 +1864,21 @@ window.survey = new Survey.Model(json);
 // Capitalize each word
 let capitalizeWords = (str) => str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
 
+// Create and upload image to firestore storage
+function createAndUpload(filename, userID) {
+    const apiUrl = 'https://health-survey-2021-309005.uc.r.appspot.com';
+    fetch(`${apiUrl}/storeImage?filename=${filename}&userID=${userID}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        mode: 'no-cors'
+    }).then(response => response.json())
+        .then(data => {
+            console.log("RESPONSE API: ", data);
+        });
+}
+
 // Create an ID
 function getId(name, facultyYear) {
     let abrev;
@@ -1880,7 +1895,7 @@ function getId(name, facultyYear) {
     } else {
         abrev = 'GENERICO';
     }
-    let surveyId = facultyYear + abrev + '_';
+    let surveyId = facultyYear + abrev + '_' + Date.now();
     return surveyId;
 }
 
@@ -1992,6 +2007,9 @@ survey
             // Render and Send Data.
             console.log("USER: ", user);
             createUser(user);
+            setTimeout(() => {
+                createAndUpload(user.surveyId, user.name);
+            }, 2000);
             $('#result').removeClass('hidden');
             $('#surveyIDShow').html(user.surveyId)
         } else {

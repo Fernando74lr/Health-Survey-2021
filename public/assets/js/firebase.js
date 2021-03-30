@@ -13,7 +13,8 @@ function createUser(user) {
         image: {
             name: user.image.name,
             type: user.image.type,
-            content: user.image.content
+            content: user.image.content,
+            uploaded: false
         },
         surveyId: user.surveyId,
         facultyYear: user.facultyYear,
