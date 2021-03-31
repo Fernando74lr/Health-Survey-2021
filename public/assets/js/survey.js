@@ -1899,10 +1899,24 @@ function getId(name, facultyYear) {
     return surveyId;
 }
 
+function errorMessageSurvey(title, tip) {
+    $('.center').html(
+        `<div class='alert alert-danger' role='alert'>
+            ${title}<br>
+            <small>${tip}</small>
+        </div>
+        <div class="buttons_panel" style="margin-top:10px;display:flex;justify-content:center;text-align:center;">
+            <a href="https://health-survey-2021.web.app/"><button type="button" id="buttonHome"class="btn btn-primary" style="margin-right:10px;border-radius:1.214em!important;">Inicio</button></a>
+        </div>
+        <br>
+        `
+    );
+}
+
 survey
     .onComplete
     .add(function (result) {
-        console.log("RESULT: ", result.data);
+        // console.log("RESULT: ", result.data);
 
         const user = {
             // User info.
@@ -1998,32 +2012,29 @@ survey
             pt5_8: result.data.pt5_8
         };
         
-        // console.log(JSON.stringify(result.data, null, 3));
-        // let imageBase64 = result.data.image[0].content;
-        // let surveyId = getId(result.data.name, result.data.facultyYear);
         let email = result.data.email;
         let emailConfirm = result.data.emailConfirmation;
         if (email === emailConfirm) {
-            // Render and Send Data.
-            console.log("USER: ", user);
-            createUser(user);
-            setTimeout(() => {
-                createAndUpload(user.surveyId, user.name);
-            }, 2000);
-            $('#result').removeClass('hidden');
-            $('#surveyIDShow').html(user.surveyId)
+            if (!emails.includes(user.email)) {
+                // Render and Send Data.
+                console.log("USER: ", user);
+                createUser(user);
+                setTimeout(() => {
+                    createAndUpload(user.surveyId, user.name);
+                }, 2000);
+                $('#result').removeClass('hidden');
+                $('#surveyIDShow').html(user.surveyId)
+            } else {
+                errorMessageSurvey(
+                    'La dirección de correo electrónico ya está registrada.',
+                    'Por favor cambia de correo.'
+                )
+            }
         } else {
-            $('.center').html(
-                `<div class='alert alert-danger' role='alert'>
-                    Tu dirección de correo electrónico no coincide con la primera que pusiste.<br>
-                    <small>Por favor asegúrate de poner el mismo correo.</small>
-                </div>
-                <div class="buttons_panel" style="margin-top:10px;display:flex;justify-content:center;text-align:center;">
-                    <a href="https://health-survey-2021.web.app/"><button type="button" id="buttonHome"class="btn btn-primary" style="margin-right:10px;border-radius:1.214em!important;">Inicio</button></a>
-                </div>
-                <br>
-                `
-            );
+            errorMessageSurvey(
+                'Tu dirección de correo electrónico no coincide con la primera que pusiste.',
+                'Por favor asegúrate de poner el mismo correo.'
+            )
         }
     });
 
