@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Resultados</title>
+        <meta name="viewport" content="width=device-width"/>
+        <!-- Icon -->
+        <link rel="icon" href="assets/img/icon_2.ico">
+        <!-- JQuery -->
+        <script src="https://unpkg.com/jquery"></script>
+        <!-- SurveyJs -->
+        <script src="https://surveyjs.azureedge.net/1.7.24/survey.jquery.js"></script>
+        <link href="https://surveyjs.azureedge.net/1.7.24/modern.css" type="text/css" rel="stylesheet"/>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Local CSS -->
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <!-- ChartJs -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    </head>
+<body>
+
+    
+    <center>
+        <div class="buttons_panel" style="margin-top:10px;">
+            <h1>Resultados.</h1><br>
+            <button type="button" id="buttonResults" class="btn btn-success" style="margin-right:10px;border-radius:1.214em!important;">
+                <a style="text-decoration:none!important;color:white!important;" href="#">Descargar </a><i class="fa fa-download" style="font-size:18px;"></i></button><br><br><br>
+        </div>
+
+        <h1 id="waitHeader">Cargando resultados...</h1>
+
+        <div id="graphs" class="hidden">
+            <h1>Actividades físicas</h1>
+            <div style="width:600px; height:300px;">
+                <canvas id="physicalActivities"></canvas>
+            </div><br>
+
+            <h1>Horas dedicadas a actividades físicas</h1>
+            <div style="width:600px; height:300px;">
+                <canvas id="hoursPhysicalActivities"></canvas>
+            </div><br>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <h4>¿Ha salido habitualmente de casa (su lugar de residencia actual) por cuestiones laborales?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt3_1"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <h4>¿Ha dormido más que antes?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt3_2"></canvas>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-sm">
+                        <h4>¿Ha visto la TV más que antes?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt3_3"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <h4>¿Ha practicado ejercicio físico de forma regular?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt3_4"></canvas>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-sm">
+                        <h4>¿Ha utilizado las redes sociales más que antes?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt3_5"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <h4>¿Han cambiado mucho sus rutinas?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt3_6"></canvas>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-sm">
+                        <h4>¿Ha utilizado internet más que antes?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt3_7"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <h4>¿Ha dedicado más tiempo que antes a ver películas, leer, o jugar a videojuegos?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt3_8"></canvas>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-sm">
+                        <h4> ¿Ha aprovechado para realizar actividades en casa para las que antes no disponía de tiempo?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt3_9"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <h4>¿Ha mantenido sus cuidados personales habituales?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt3_10"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div><br><br>
+
+            <h1>Tipos de cubrebocas</h1>
+            <div style="width:600px; height:300px;">
+                <canvas id="masks"></canvas>
+            </div><br><br>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <h4> ¿Utiliza siempre o casi siempre guantes cuando sale de casa?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt4_1"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <h4>¿Mantiene siempre o casi siempre la distancia de seguridad con otras personas fuera de casa (al menos 2 metros)?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt4_2"></canvas>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-sm">
+                        <h4>¿Cree que se lava o desinfecta las manos con excesiva frecuencia?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt4_3"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <h4>¿Desinfecta habitualmente los objetos y superficies con gel desinfectante, jabón, alcohol, etc.?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt4_4"></canvas>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-sm">
+                        <h4>¿Toma precauciones habitualmente al llegar del supermercado, lavando los alimentos, desinfectando el teléfono celular o las llaves, etc.?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt4_5"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <h4> ¿Se protege habitualmente al tocar zonas de posible contagio, como manijas, ascensores, lectores de tarjetas de crédito, etc.?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt4_6"></canvas>
+                        </div>
+                    </div>
+                </div><br>
+            </div><br><br>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <h4>¿Ha tenido discusiones o conflictos con sus familiares?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt5_1"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <h4>¿Le ha perturbado o alterado no poder ver a algunos de sus familiares que veía habitualmente?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt5_2"></canvas>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-sm">
+                        <h4>¿Le ha perturbado o alterado no poder ver a sus amigos?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt5_3"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <h4>¿Le ha perturbado o alterado no poder realizar actividades de ocio fuera de casa (viajar, salir, etc.)?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt5_4"></canvas>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-sm">
+                        <h4>¿Ha tenido problemas para realizar actividades de ocio en casa (leer, escribir, ver películas, videojuegos, etc.)?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt5_5"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <h4>¿Le ha perturbado o alterado no poder realizar actividades físicas fuera de casa (deporte, ejercicio físico, ir al campo, etc.)?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt5_6"></canvas>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-sm">
+                        <h4>¿Le ha perturbado o alterado no poder salir de casa salvo para cosas muy necesarias?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt5_7"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <h4>¿Le ha perturbado o alterado no poder disponer de cosas que necesitaba?</h4>
+                        <div style="width:500px; height:250px;">
+                            <canvas id="pt5_8"></canvas>
+                        </div>
+                    </div>
+                </div><br>
+            </div><br><br>
+        </div>
+
+        <!-- Firebase & Firestore -->
+        <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-firestore.js"></script>
+        <script src="assets/js/credentials.js"></script>
+        <script src="assets/js/results.js"></script>
+
+        <script>
+            setTimeout(() => {
+
+                $("#graphs").removeClass('hidden');
+                $("#waitHeader").addClass('hidden');
+                console.log('part_1: ', part_1);
+                console.log('part_2: ', part_2);
+                console.log('part_3: ', part_3);
+                console.log('part_4_1: ', part_4_1);
+                console.log('part_4_2: ', part_4_2);
+                console.log('part_5: ', part_5);
+
+                let colors = [
+                '#577590', '#43aa8b', '#90be6d', '#f9c74f', '#f8961e', '#f3722c', '#f94144', '#445c7c', '#0c3954', '#255069', '#7c9cab', '#2e5874', '#7693a4', '#4d7287', '#370617', '#6a040f', '#9d0208', '#d00000', '#dc2f02', '#e85d04', '#f48c06', '#277da1', '#577590', '#4d908e', '#43aa8b', '#90be6d', '#f9c74f', '#f9844a'
+                ]
+                // let randomColor = () => Math.floor(Math.random() * colors.length);
+                // let ranColors = [colors[randomColor()], colors[randomColor()], colors[randomColor()], colors[randomColor()]];
+                var ctx_physicalActivities = document.getElementById('physicalActivities').getContext('2d');
+                var chart_physicalActivities = new Chart(ctx_physicalActivities, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Intenso', 'Moderado', 'Caminatas', 'Sentado'],
+                        datasets: [{
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_2.intense[0], part_2.moderate[0], part_2.hikes[0], part_2.seated[0]]
+                        }]
+                    }
+                });
+
+                var ctx_hoursPhysicalActivities = document.getElementById('hoursPhysicalActivities').getContext('2d');
+                var chart_hoursPhysicalActivities = new Chart(ctx_hoursPhysicalActivities, {
+                    type: 'line',
+                    data: {
+                        labels: ['Ninguno', 'Intenso', 'Moderado', 'Caminatas', 'Sentado'],
+                        datasets: [{
+                            label: 'Horas',
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [0, part_2.intense[1], part_2.moderate[1], part_2.hikes[1], part_2.seated[1]]
+                        }]
+                    }
+                });
+
+                // PART 3
+
+                var ctx_pt3_1 = document.getElementById('pt3_1').getContext('2d');
+                var chart_pt3_1 = new Chart(ctx_pt3_1, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Sí', 'No'],
+                        datasets: [{
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_3.pt3_1[0], part_3.pt3_1[1]]
+                        }]
+                    }
+                });
+
+                var ctx_pt3_2 = document.getElementById('pt3_2').getContext('2d');
+                var chart_pt3_2 = new Chart(ctx_pt3_2, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Sí', 'No'],
+                        datasets: [{
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_3.pt3_2[0], part_3.pt3_2[1]]
+                        }]
+                    }
+                });
+
+                var ctx_pt3_3 = document.getElementById('pt3_3').getContext('2d');
+                var chart_pt3_3 = new Chart(ctx_pt3_3, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Sí', 'No'],
+                        datasets: [{
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_3.pt3_3[0], part_3.pt3_3[1]]
+                        }]
+                    }
+                });
+
+                var ctx_pt3_4 = document.getElementById('pt3_4').getContext('2d');
+                var chart_pt3_4 = new Chart(ctx_pt3_4, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Sí', 'No'],
+                        datasets: [{
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_3.pt3_4[0], part_3.pt3_4[1]]
+                        }]
+                    }
+                });
+
+                var ctx_pt3_5 = document.getElementById('pt3_5').getContext('2d');
+                var chart_pt3_5 = new Chart(ctx_pt3_5, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Sí', 'No'],
+                        datasets: [{
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_3.pt3_5[0], part_3.pt3_5[1]]
+                        }]
+                    }
+                });
+
+                var ctx_pt3_6 = document.getElementById('pt3_6').getContext('2d');
+                var chart_pt3_6 = new Chart(ctx_pt3_6, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Sí', 'No'],
+                        datasets: [{
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_3.pt3_6[0], part_3.pt3_6[1]]
+                        }]
+                    }
+                });
+
+                var ctx_pt3_7 = document.getElementById('pt3_7').getContext('2d');
+                var chart_pt3_7 = new Chart(ctx_pt3_7, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Sí', 'No'],
+                        datasets: [{
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_3.pt3_7[0], part_3.pt3_7[1]]
+                        }]
+                    }
+                });
+
+                var ctx_pt3_8 = document.getElementById('pt3_8').getContext('2d');
+                var chart_pt3_8 = new Chart(ctx_pt3_8, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Sí', 'No'],
+                        datasets: [{
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_3.pt3_8[0], part_3.pt3_8[1]]
+                        }]
+                    }
+                });
+
+                var ctx_pt3_9 = document.getElementById('pt3_9').getContext('2d');
+                var chart_pt3_9 = new Chart(ctx_pt3_9, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Sí', 'No'],
+                        datasets: [{
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_3.pt3_9[0], part_3.pt3_9[1]]
+                        }]
+                    }
+                });
+
+                var ctx_pt3_10 = document.getElementById('pt3_10').getContext('2d');
+                var chart_pt3_10 = new Chart(ctx_pt3_10, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Sí', 'No'],
+                        datasets: [{
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_3.pt3_10[0], part_3.pt3_10[1]]
+                        }]
+                    }
+                });
+
+                // PART 4.1
+                
+                var ctx_masks = document.getElementById('masks').getContext('2d');
+                var chart_masks = new Chart(ctx_masks, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Quirúrgico', 'Neopreno', 'Tela', 'KN95'],
+                        datasets: [{
+                            label: 'Cubrebocas',
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_4_1.quirurgico, part_4_1.neopreno, part_4_1.tela, part_4_1.kn95]
+                        }]
+                    },
+                    options: {
+                        legend: false,
+                        tooltips: false,
+                    }
+                });
+
+                // PART 4.2
+
+                var ctx_pt4_1 = document.getElementById('pt4_1').getContext('2d');
+                var chart_pt4_1 = new Chart(ctx_pt4_1, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Sí', 'No'],
+                        datasets: [{
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_4_2.pt4_1[0], part_4_2.pt4_1[1]]
+                        }]
+                    }
+                });
+
+                var ctx_pt4_2 = document.getElementById('pt4_2').getContext('2d');
+                var chart_pt4_2 = new Chart(ctx_pt4_2, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Sí', 'No'],
+                        datasets: [{
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_4_2.pt4_2[0], part_4_2.pt4_2[1]]
+                        }]
+                    }
+                });
+
+                var ctx_pt4_3 = document.getElementById('pt4_3').getContext('2d');
+                var chart_pt4_3 = new Chart(ctx_pt4_3, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Sí', 'No'],
+                        datasets: [{
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_4_2.pt4_3[0], part_4_2.pt4_3[1]]
+                        }]
+                    }
+                });
+
+                var ctx_pt4_4 = document.getElementById('pt4_4').getContext('2d');
+                var chart_pt4_4 = new Chart(ctx_pt4_4, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Sí', 'No'],
+                        datasets: [{
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_4_2.pt4_4[0], part_4_2.pt4_4[1]]
+                        }]
+                    }
+                });
+
+                var ctx_pt4_5 = document.getElementById('pt4_5').getContext('2d');
+                var chart_pt4_5 = new Chart(ctx_pt4_5, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Sí', 'No'],
+                        datasets: [{
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_4_2.pt4_5[0], part_4_2.pt4_5[1]]
+                        }]
+                    }
+                });
+
+                var ctx_pt4_6 = document.getElementById('pt4_6').getContext('2d');
+                var chart_pt4_6 = new Chart(ctx_pt4_6, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Sí', 'No'],
+                        datasets: [{
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_4_2.pt4_6[0], part_4_2.pt4_6[1]]
+                        }]
+                    }
+                });
+
+                // PART 5
+
+                var ctx_pt5_1 = document.getElementById('pt5_1').getContext('2d');
+                var chart_pt5_1 = new Chart(ctx_pt5_1, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Nunca o casi nunca', 'Algunas veces', 'Bastantes veces', 'Muchas veces', 'Siempre o casi siempre'],
+                        datasets: [{
+                            label: '',
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_5.pt5_1[0], part_5.pt5_1[1], part_5.pt5_1[2], part_5.pt5_1[3], part_5.pt5_1[4]]
+                        }]
+                    },
+                    options: {
+                        legend: false,
+                        tooltips: false,
+                    }
+                });
+
+                var ctx_pt5_2 = document.getElementById('pt5_2').getContext('2d');
+                var chart_pt5_2 = new Chart(ctx_pt5_2, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Nunca o casi nunca', 'Algunas veces', 'Bastantes veces', 'Muchas veces', 'Siempre o casi siempre'],
+                        datasets: [{
+                            label: '',
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_5.pt5_2[0], part_5.pt5_2[1], part_5.pt5_2[2], part_5.pt5_2[3], part_5.pt5_2[4]]
+                        }]
+                    },
+                    options: {
+                        legend: false,
+                        tooltips: false,
+                    }
+                });
+
+                var ctx_pt5_3 = document.getElementById('pt5_3').getContext('2d');
+                var chart_pt5_3 = new Chart(ctx_pt5_3, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Nunca o casi nunca', 'Algunas veces', 'Bastantes veces', 'Muchas veces', 'Siempre o casi siempre'],
+                        datasets: [{
+                            label: '',
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_5.pt5_3[0], part_5.pt5_3[1], part_5.pt5_3[2], part_5.pt5_3[3], part_5.pt5_3[4]]
+                        }]
+                    },
+                    options: {
+                        legend: false,
+                        tooltips: false,
+                    }
+                });
+
+                var ctx_pt5_4 = document.getElementById('pt5_4').getContext('2d');
+                var chart_pt5_4 = new Chart(ctx_pt5_4, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Nunca o casi nunca', 'Algunas veces', 'Bastantes veces', 'Muchas veces', 'Siempre o casi siempre'],
+                        datasets: [{
+                            label: '',
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_5.pt5_4[0], part_5.pt5_4[1], part_5.pt5_4[2], part_5.pt5_4[3], part_5.pt5_4[4]]
+                        }]
+                    },
+                    options: {
+                        legend: false,
+                        tooltips: false,
+                    }
+                });
+
+                var ctx_pt5_5 = document.getElementById('pt5_5').getContext('2d');
+                var chart_pt5_5 = new Chart(ctx_pt5_5, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Nunca o casi nunca', 'Algunas veces', 'Bastantes veces', 'Muchas veces', 'Siempre o casi siempre'],
+                        datasets: [{
+                            label: '',
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_5.pt5_5[0], part_5.pt5_5[1], part_5.pt5_5[2], part_5.pt5_5[3], part_5.pt5_5[4]]
+                        }]
+                    },
+                    options: {
+                        legend: false,
+                        tooltips: false,
+                    }
+                });
+
+                var ctx_pt5_6 = document.getElementById('pt5_6').getContext('2d');
+                var chart_pt5_6 = new Chart(ctx_pt5_6, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Nunca o casi nunca', 'Algunas veces', 'Bastantes veces', 'Muchas veces', 'Siempre o casi siempre'],
+                        datasets: [{
+                            label: '',
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_5.pt5_6[0], part_5.pt5_6[1], part_5.pt5_6[2], part_5.pt5_6[3], part_5.pt5_6[4]]
+                        }]
+                    },
+                    options: {
+                        legend: false,
+                        tooltips: false,
+                    }
+                });
+
+                var ctx_pt5_7 = document.getElementById('pt5_7').getContext('2d');
+                var chart_pt5_7 = new Chart(ctx_pt5_7, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Nunca o casi nunca', 'Algunas veces', 'Bastantes veces', 'Muchas veces', 'Siempre o casi siempre'],
+                        datasets: [{
+                            label: '',
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_5.pt5_7[0], part_5.pt5_7[1], part_5.pt5_7[2], part_5.pt5_7[3], part_5.pt5_7[4]]
+                        }]
+                    },
+                    options: {
+                        legend: false,
+                        tooltips: false,
+                    }
+                });
+
+                var ctx_pt5_8 = document.getElementById('pt5_8').getContext('2d');
+                var chart_pt5_8 = new Chart(ctx_pt5_8, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Nunca o casi nunca', 'Algunas veces', 'Bastantes veces', 'Muchas veces', 'Siempre o casi siempre'],
+                        datasets: [{
+                            label: '',
+                            backgroundColor: colors,
+                            borderColor: colors,
+                            data: [part_5.pt5_8[0], part_5.pt5_8[1], part_5.pt5_8[2], part_5.pt5_8[3], part_5.pt5_8[4]]
+                        }]
+                    },
+                    options: {
+                        legend: false,
+                        tooltips: false,
+                    }
+                });
+            }, 4000);
+        </script>   
+    </center>
+    
+</body>
+</html>
