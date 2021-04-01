@@ -23,10 +23,13 @@
 
     
     <center>
-        <div class="buttons_panel" style="margin-top:10px;">
-            <h1>Resultados.</h1><br>
-            <button type="button" id="buttonResults" class="btn btn-success" style="margin-right:10px;border-radius:1.214em!important;">
-                <a style="text-decoration:none!important;color:white!important;" href="#">Descargar </a><i class="fa fa-download" style="font-size:18px;"></i></button><br><br><br>
+        <h1><u>Resultados</u></h1><br>
+        <div  id="buttonsDownload" class="buttons_panel" style="margin-top:10px;">
+            <button type="button" id="buttonResults" class="btn btn-success" style="margin-right:10px;border-radius:1.214em!important;"><a class="buttonDownload" href="https://health-survey-2021-309005.uc.r.appspot.com/results">Excel </a><i class="fa fa-download" style="font-size:18px;"></i></button>
+
+            <button type="button" id="buttonResults" class="btn btn-primary" style="margin-right:10px;border-radius:1.214em!important;"><a class="buttonDownload" href="https://health-survey-2021.web.app/">Inicio </a><i class="fa fa-home" style="font-size:18px;"></i></button>
+
+            <button onclick="downloadPDF()" type="button" id="buttonResults" class="btn btn-danger" style="margin-right:10px;border-radius:1.214em!important;"> PDF <i class="fa fa-download" style="font-size:18px;"></i></button><br><br><br>
         </div>
 
         <h1 id="waitHeader">Cargando resultados...</h1>
@@ -653,7 +656,7 @@
                     }
                 });
             }, 4000);
-        </script>   
+        </script>
     </center>
     
 </body>
