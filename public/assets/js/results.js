@@ -303,3 +303,11 @@ async function loadData() {
 }
 
 loadData();
+
+function downloadPDF() {
+    $("#buttonsDownload").addClass("hidden");
+    
+    setTimeout(() => {
+        window.print();
+    }, 2000);
+}

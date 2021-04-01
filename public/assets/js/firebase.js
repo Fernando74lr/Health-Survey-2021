@@ -11,8 +11,8 @@ let emails = [];
 function createUser(user) {
     const userInfo = {
         // User info.
-        firstMessage: user.firstMessage,
-        consent: user.consent,
+        firstMessage: user.firstMessage ? 'Sí' : 'No',
+        consent: user.consent ? 'Sí' : 'No',
         image: {
             name: user.image.name,
             type: user.image.type,
@@ -25,7 +25,7 @@ function createUser(user) {
         age: user.age,
         gender: user.gender,
         civilStatus: user.civilStatus,
-        kids: user.kids,
+        kids: user.kids ? 'Sí' : 'No',
         state: user.state,
         municipality: user.municipality,
         typeOfResidence: user.typeOfResidence,
@@ -36,11 +36,9 @@ function createUser(user) {
         worked: user.worked,
         workDifficulties: user.workDifficulties,
         academicPerformance: user.academicPerformance,
-        difficultiesToStudy: user.difficultiesToStudy,
         seriousWorkProblems: user.seriousWorkProblems,
         accessToInternetAndDevicesDoctor: user.accessToInternetAndDevicesDoctor,
         accessToInternetAndDevicesStudent: user.accessToInternetAndDevicesStudent,
-        academicPerformance: user.academicPerformance,
         difficultiesToStudy: user.difficultiesToStudy,
         typeOfActivity: user.typeOfActivity,
         useOfMask: user.useOfMask,
