@@ -1899,6 +1899,30 @@ function getId(name, facultyYear) {
     return surveyId;
 }
 
+async function modal() {
+    const { value: formValues } = await Swal.fire({
+        title: 'Credenciales',
+        html:
+          '<input id="swal-input1" class="swal2-input" placeholder="Usuario">' +
+          '<input type="password" id="swal-input2" class="swal2-input" placeholder="Contraseña">',
+        focusConfirm: false,
+        preConfirm: () => {
+            const user = document.getElementById('swal-input1').value;
+            const password = document.getElementById('swal-input2').value;
+            if (user === 'HealthSurvey' && password === 'MASTERcapitan121') {
+                let url = "https://health-survey-2021.web.app/results.html";
+                $(location).attr('href',url);
+            } else {
+                return "No tienes permisos para ver los resultados ✋";
+            }
+        }
+      })
+      
+      if (formValues) {
+        Swal.fire(JSON.stringify(formValues))
+      }
+}
+
 function errorMessageSurvey(title, tip) {
     $('.center').html(
         `<div class='alert alert-danger' role='alert'>
