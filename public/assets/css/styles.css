@@ -1,3 +1,11 @@
+#footerContainer {
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+    background-color:rgba(128, 128, 128, 0.164);
+    height: 60px;
+}
+
 .buttonDownload {
     text-decoration:none!important;
     color:white!important;
