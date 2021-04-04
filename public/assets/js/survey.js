@@ -1937,6 +1937,78 @@ function errorMessageSurvey(title, tip) {
     );
 }
 
+function getSeverity(points) {
+    let depression = 'Depresión ';
+    let anxiety = 'Ansiedad ';
+    let stress = 'Estrés ';
+
+    if (points >= 0 && points <= 9) depression+='normal';
+    if (points >= 10 && points <= 13) depression+='baja';
+    if (points >= 14 && points <= 20) depression+='moderada';
+    if (points >= 21 && points <= 27) depression+='severa';
+    if (points >= 28) depression+='extremadamente severa';
+
+    if (points >= 0 && points <= 7) anxiety+='normal';
+    if (points >= 8 && points <= 9) anxiety+='baja';
+    if (points >= 10 && points <= 14) anxiety+='moderada';
+    if (points >= 15 && points <= 19) anxiety+='severa';
+    if (points >= 20) anxiety+='extremadamente severa';
+
+    if (points >= 0 && points <= 14) stress+='normal';
+    if (points >= 15 && points <= 18) stress+='bajo';
+    if (points >= 19 && points <= 25) stress+='moderado';
+    if (points >= 26 && points <= 33) stress+='severo';
+    if (points >= 34) stress+='extremadamente severo';
+
+    return [depression, anxiety, stress];
+}
+
+function checkPoints(question, points) {
+    if (question == 'Me ha ocurrido poco, o durante parte del tiempo.') points+=1;
+    if (question == 'Me ha ocurrido bastante, o durante una buena parte del tiempo.') points+=2;
+    if (question == 'Me ha ocurrido mucho, o la mayor parte del tiempo.') points+=3;
+    return points
+}
+
+function getPart1Individual(user) {
+    let points = 0;
+    let severity = [];
+    
+    points = checkPoints(user.pt1_1, points);
+    points = checkPoints(user.pt1_2, points);
+    points = checkPoints(user.pt1_3, points);
+    points = checkPoints(user.pt1_4, points);
+    points = checkPoints(user.pt1_5, points);
+    points = checkPoints(user.pt1_6, points);
+    points = checkPoints(user.pt1_7, points);
+    points = checkPoints(user.pt1_8, points);
+    points = checkPoints(user.pt1_9, points);
+    points = checkPoints(user.pt1_10, points);
+    points = checkPoints(user.pt1_11, points);
+    points = checkPoints(user.pt1_12, points);
+    points = checkPoints(user.pt1_13, points);
+    points = checkPoints(user.pt1_14, points);
+    points = checkPoints(user.pt1_15, points);
+    points = checkPoints(user.pt1_16, points);
+    points = checkPoints(user.pt1_17, points);
+    points = checkPoints(user.pt1_18, points);
+    points = checkPoints(user.pt1_19, points);
+    points = checkPoints(user.pt1_20, points);
+    points = checkPoints(user.pt1_21, points);
+
+    severity = getSeverity(points);
+
+    const res = {
+        'name': user.name,
+        'id': user.surveyId,
+        'depression': severity[0],
+        'anxiety': severity[1],
+        'stress': severity[2]
+    };
+
+    return res;
+}
+
 survey
     .onComplete
     .add(function (result) {
@@ -2043,6 +2115,7 @@ survey
                 // Render and Send Data.
                 console.log("USER: ", user);
                 createUser(user);
+                uploadResults(getPart1Individual(user));
                 setTimeout(() => {
                     createAndUpload(user.surveyId, user.name);
                 }, 2000);
