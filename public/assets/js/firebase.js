@@ -7,6 +7,19 @@ const db = firebase.firestore();
 const usersRef = db.collection('users');
 let emails = [];
 
+// Add results to the 'user' document
+function uploadResults(userResults) {
+    try {
+        usersRef.doc(userResults.name).update({
+            results: userResults
+        });
+        console.log("USER'RESULTS UPLOADED");
+    } catch (error) {
+        console.log("Something went wrong trying to upload results :/");
+        console.log("ERROR: " + error);
+    }
+}
+
 // Create user
 function createUser(user) {
     const userInfo = {
