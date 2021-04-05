@@ -124,16 +124,11 @@ async function getPart2() {
     let total = intenseCount + moderateCount + hikesCount + seatedCount;
 
     const res = {
-        'intense': [intenseCount/total, intenseHours/(intenseCount == 0 ? 1 : intenseCount)],
-        'moderate': [moderateCount/total, moderateHours/(moderateCount == 0 ? 1 : moderateCount)],
-        'hikes': [hikesCount/total, hikesHours/(hikesCount == 0 ? 1 : hikesCount)],
-        'seated': [seatedCount/total, seatedHours/(seatedCount == 0 ? 1 : seatedCount)]
+        'intense': [(intenseCount/total).toFixed(2), (intenseHours/(intenseCount == 0 ? 1 : intenseCount)).toFixed(2)],
+        'moderate': [(moderateCount/total).toFixed(2), (moderateHours/(moderateCount == 0 ? 1 : moderateCount)).toFixed(2)],
+        'hikes': [(hikesCount/total).toFixed(2), (hikesHours/(hikesCount == 0 ? 1 : hikesCount)).toFixed(2)],
+        'seated': [(seatedCount/total).toFixed(2), (seatedHours/(seatedCount == 0 ? 1 : seatedCount)).toFixed(2)]
     };
-    
-    // console.log("Intense: " + res.intense[0] + ' | ' + res.intense[1]);
-    // console.log("Moderate: " + moderateCount);
-    // console.log("Hikes: " + hikesCount);
-    // console.log("Seated: " + seatedCount);
 
     return res;
 }
