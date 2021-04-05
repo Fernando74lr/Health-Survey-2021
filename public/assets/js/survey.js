@@ -1879,6 +1879,21 @@ function createAndUpload(filename, userID) {
         });
 }
 
+// Create and upload image to firestore storage
+function sendEmail(userID) {
+    const apiUrl = 'https://health-survey-2021-309005.uc.r.appspot.com';
+    fetch(`${apiUrl}/sendEmail?userID=${userID}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        mode: 'no-cors'
+    }).then(response => response.json())
+        .then(data => {
+            console.log("RESPONSE API: ", data);
+        });
+}
+
 // Create an ID
 function getId(name, facultyYear) {
     let abrev;
@@ -1938,27 +1953,27 @@ function errorMessageSurvey(title, tip) {
 }
 
 function getSeverity(points) {
-    let depression = 'Depresión ';
-    let anxiety = 'Ansiedad ';
-    let stress = 'Estrés ';
+    let depression;
+    let anxiety;
+    let stress;
 
-    if (points >= 0 && points <= 9) depression+='normal';
-    if (points >= 10 && points <= 13) depression+='baja';
-    if (points >= 14 && points <= 20) depression+='moderada';
-    if (points >= 21 && points <= 27) depression+='severa';
-    if (points >= 28) depression+='extremadamente severa';
+    if (points >= 0 && points <= 9) depression = 'Normal';
+    if (points >= 10 && points <= 13) depression = 'Baja';
+    if (points >= 14 && points <= 20) depression = 'Moderada';
+    if (points >= 21 && points <= 27) depression = 'Severa';
+    if (points >= 28) depression = 'Extremadamente severa';
 
-    if (points >= 0 && points <= 7) anxiety+='normal';
-    if (points >= 8 && points <= 9) anxiety+='baja';
-    if (points >= 10 && points <= 14) anxiety+='moderada';
-    if (points >= 15 && points <= 19) anxiety+='severa';
-    if (points >= 20) anxiety+='extremadamente severa';
+    if (points >= 0 && points <= 7) anxiety = 'Normal';
+    if (points >= 8 && points <= 9) anxiety = 'Baja';
+    if (points >= 10 && points <= 14) anxiety = 'Moderada';
+    if (points >= 15 && points <= 19) anxiety = 'Severa';
+    if (points >= 20) anxiety = 'Extremadamente severa';
 
-    if (points >= 0 && points <= 14) stress+='normal';
-    if (points >= 15 && points <= 18) stress+='bajo';
-    if (points >= 19 && points <= 25) stress+='moderado';
-    if (points >= 26 && points <= 33) stress+='severo';
-    if (points >= 34) stress+='extremadamente severo';
+    if (points >= 0 && points <= 14) stress = 'Normal';
+    if (points >= 15 && points <= 18) stress = 'Baja';
+    if (points >= 19 && points <= 25) stress = 'Moderada';
+    if (points >= 26 && points <= 33) stress = 'Severa';
+    if (points >= 34) stress = 'Extremadamente severa';
 
     return [depression, anxiety, stress];
 }
@@ -2115,12 +2130,17 @@ survey
                 // Render and Send Data.
                 console.log("USER: ", user);
                 createUser(user);
-                uploadResults(getPart1Individual(user));
+                let results = getPart1Individual(user);
                 setTimeout(() => {
+                    uploadResults(results);
+                    sendEmail(user.name);
                     createAndUpload(user.surveyId, user.name);
-                }, 2000);
+                }, 3000);
                 $('#result').removeClass('hidden');
-                $('#surveyIDShow').html(user.surveyId)
+                $('#surveyIDShow').html(user.surveyId);
+                $('#anxiety').html(results.anxiety);
+                $('#stress').html(results.stress);
+                $('#depression').html(results.depression);
             } else {
                 errorMessageSurvey(
                     'La dirección de correo electrónico ya está registrada.',

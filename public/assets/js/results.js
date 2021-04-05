@@ -6,27 +6,27 @@ const db = firebase.firestore();
 
 
 function getSeverity(points) {
-    let depression = 'Depresión ';
-    let anxiety = 'Ansiedad ';
-    let stress = 'Estrés ';
+    let depression;
+    let anxiety;
+    let stress;
 
-    if (points >= 0 && points <= 9) depression+='normal';
-    if (points >= 10 && points <= 13) depression+='baja';
-    if (points >= 14 && points <= 20) depression+='moderada';
-    if (points >= 21 && points <= 27) depression+='severa';
-    if (points >= 28) depression+='extremadamente severa';
+    if (points >= 0 && points <= 9) depression = 'Normal';
+    if (points >= 10 && points <= 13) depression = 'Baja';
+    if (points >= 14 && points <= 20) depression = 'Moderada';
+    if (points >= 21 && points <= 27) depression = 'Severa';
+    if (points >= 28) depression = 'Extremadamente severa';
 
-    if (points >= 0 && points <= 7) anxiety+='normal';
-    if (points >= 8 && points <= 9) anxiety+='baja';
-    if (points >= 10 && points <= 14) anxiety+='moderada';
-    if (points >= 15 && points <= 19) anxiety+='severa';
-    if (points >= 20) anxiety+='extremadamente severa';
+    if (points >= 0 && points <= 7) anxiety = 'Normal';
+    if (points >= 8 && points <= 9) anxiety = 'Baja';
+    if (points >= 10 && points <= 14) anxiety = 'Moderada';
+    if (points >= 15 && points <= 19) anxiety = 'Severa';
+    if (points >= 20) anxiety = 'Extremadamente severa';
 
-    if (points >= 0 && points <= 14) stress+='normal';
-    if (points >= 15 && points <= 18) stress+='bajo';
-    if (points >= 19 && points <= 25) stress+='moderado';
-    if (points >= 26 && points <= 33) stress+='severo';
-    if (points >= 34) stress+='extremadamente severo';
+    if (points >= 0 && points <= 14) stress = 'Normal';
+    if (points >= 15 && points <= 18) stress = 'Baja';
+    if (points >= 19 && points <= 25) stress = 'Moderada';
+    if (points >= 26 && points <= 33) stress = 'Severa';
+    if (points >= 34) stress = 'Extremadamente severa';
 
     return [depression, anxiety, stress];
 }
@@ -124,10 +124,10 @@ async function getPart2() {
     let total = intenseCount + moderateCount + hikesCount + seatedCount;
 
     const res = {
-        'intense': [roundNumber(intenseCount/total), roundNumber(intenseHours/(intenseCount == 0 ? 1 : intenseCount))],
-        'moderate': [roundNumber(moderateCount/total), roundNumber(moderateHours/(moderateCount == 0 ? 1 : moderateCount))],
-        'hikes': [roundNumber(hikesCount/total), roundNumber(hikesHours/(hikesCount == 0 ? 1 : hikesCount))],
-        'seated': [roundNumber(seatedCount/total), roundNumber(seatedHours/(seatedCount == 0 ? 1 : seatedCount))]
+        'intense': [intenseCount/total, intenseHours/(intenseCount == 0 ? 1 : intenseCount)],
+        'moderate': [moderateCount/total, moderateHours/(moderateCount == 0 ? 1 : moderateCount)],
+        'hikes': [hikesCount/total, hikesHours/(hikesCount == 0 ? 1 : hikesCount)],
+        'seated': [seatedCount/total, seatedHours/(seatedCount == 0 ? 1 : seatedCount)]
     };
     
     // console.log("Intense: " + res.intense[0] + ' | ' + res.intense[1]);

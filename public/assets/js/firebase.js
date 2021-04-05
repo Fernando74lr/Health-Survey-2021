@@ -11,7 +11,11 @@ let emails = [];
 function uploadResults(userResults) {
     try {
         usersRef.doc(userResults.name).update({
-            results: userResults
+            results: {
+                anxiety: userResults.anxiety,
+                depression: userResults.depression,
+                stress: userResults.stress
+            }
         });
         console.log("USER'RESULTS UPLOADED");
     } catch (error) {
