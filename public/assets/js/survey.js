@@ -1879,7 +1879,7 @@ function createAndUpload(filename, userID) {
         });
 }
 
-// Create and upload image to firestore storage
+// Send an email to with the results to the user
 function sendEmail(userID) {
     const apiUrl = 'https://health-survey-2021-309005.uc.r.appspot.com';
     fetch(`${apiUrl}/sendEmail?userID=${userID}`, {
