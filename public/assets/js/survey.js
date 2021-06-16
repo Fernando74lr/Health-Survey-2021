@@ -206,6 +206,10 @@ var json = {
         "isRequired": true,
         "choices": [
             {
+            "value": "Colombia",
+            "text": "Colombia"
+            },
+            {
             "value": "Aguascalientes",
             "text": "Aguascalientes"
             },
