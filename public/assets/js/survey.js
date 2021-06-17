@@ -412,19 +412,19 @@ var json = {
         "choices": [
             {
             "value": "Alumno",
-            "text": "Alumno activo de la Facultad de medicina BUAP"
+            "text": "Alumno activo de la Facultad de medicina"
             },
             {
             "value": "MIP",
-            "text": "MIP activo de la Facultad de medicina BUAP"
+            "text": "MIP activo de la Facultad de medicina"
             },
             {
             "value": "MPSS",
-            "text": "MPSS activo de la Facultad de medicina BUAP"
+            "text": "MPSS activo de la Facultad de medicina"
             },
             {
             "value": "Docente",
-            "text": "Docente activo de la Facultad de medicina BUAP"
+            "text": "Docente activo de la Facultad de medicina"
             }
         ],
         "otherText": "Unión libre"
